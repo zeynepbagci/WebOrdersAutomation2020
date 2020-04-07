@@ -15,9 +15,9 @@ import org.testng.annotations.BeforeTest;
 
 import java.io.IOException;
 
+
 public abstract class AbstractBaseTest {
 
-    protected WebDriver driver = Driver.getDriver();
 
     protected static ExtentReports extentReports;
     protected static ExtentHtmlReporter extentHtmlReporter;
@@ -45,6 +45,7 @@ public abstract class AbstractBaseTest {
 
     @BeforeMethod
     public void setup() {
+        WebDriver driver = Driver.getDriver();
         driver.get(ConfigurationReader.getProperty("url"));
         driver.manage().window().maximize();
     }
